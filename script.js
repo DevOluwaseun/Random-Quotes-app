@@ -7,15 +7,13 @@ const copy = document.getElementById("copy");
 
 let quoteCat = "famous";
 const renderQuotes = function (category) {
-  const request = fetch(
-    `https://api.api-ninjas.com/v1/quotes?category=${category}`,
-    {
-      method: "GET",
-      headers: { "X-Api-Key": "Yj/SMs7Jx63NDLdP3a45Sw==6HoubvYbTcL0Mp4D" },
-    }
-  )
+  const request = fetch(`https://api.api-ninjas.com/v1/quotes`, {
+    method: "GET",
+    headers: { "X-Api-Key": "Yj/SMs7Jx63NDLdP3a45Sw==6HoubvYbTcL0Mp4D" },
+  })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       displayName(data[0].author);
       displayQuotes(data[0].quote);
     })
